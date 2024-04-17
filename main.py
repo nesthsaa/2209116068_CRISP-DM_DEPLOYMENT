@@ -31,10 +31,11 @@ def main():
     st.header("Rating yang Paling Banyak Diterima")
     show_countplot(df)
      # Tampilkan penjelasan
-    st.write("Grafik di atas menunjukkan jumlah produk kacamata dari setiap rating.\n"
-             "Berdasarkan grafik, dapat dilihat bahwa rating 4,5 adalah rating yang paling banyak diterima dengan hampir 70 produk yang mendapatkan rating tersebut.\n"
-             "Sedangkan rating 3,8 dan 3,9 adalah rating yang paling sedikit diterima")
-
+    st.write("Grafik di atas menunjukkan jumlah produk kacamata dari setiap rating.")
+    st.write("Interpretasi: Berdasarkan grafik, dapat dilihat bahwa rating 4,5 adalah rating yang paling banyak diterima dengan hampir 70 produk yang mendapatkan rating tersebut.\n"
+             "Sedangkan rating 3,8 dan 3,9 adalah rating yang paling sedikit diterima.")
+    st.write("Insight: Pelanggan cenderung memberikan rating tinggi pada produk kacamata yang mereka beli, memberikan indikasi bahwa produk tersebut berkualitas baik.")
+    st.write("Actionable Insight: Fokuskan upaya untuk meningkatkan kualitas produk agar mendapatkan rating tinggi. Lakukan analisis terperinci terhadap ulasan pelanggan untuk memahami area-area yang perlu diperbaiki atau ditingkatkan.")
 if __name__ == "__main__":
     main()
 
@@ -46,7 +47,7 @@ if __name__ == "__main__":
 def main():
     
     # Load data
-    df = pd.read_csv("Data Cleaned.csv")  # Ganti "your_dataset.csv" dengan nama file dataset Anda
+    df = pd.read_csv("best_sellers_amazon_2024_sunglasses.csv")  # Ganti "your_dataset.csv" dengan nama file dataset Anda
     
     # Filter rating yang tersedia
     available_ratings = sorted(df['stars'].unique())
@@ -55,7 +56,9 @@ def main():
     selected_rating = st.sidebar.selectbox("Pilih Rating:", available_ratings)
 
     st.header("Daftar Merk Kacamata Berdasarkan Rating")
-    st.write(" User dapat memilih rating kacamata yang ingin mereka lihat, dan kemudian sistem akan menampilkan daftar merek kacamata yang memiliki rating tersebut.")
+    st.write("Interpretasi: Pengguna dapat memilih rating kacamata yang ingin mereka lihat, dan kemudian sistem akan menampilkan daftar merek kacamata yang memiliki rating tersebut.")
+    st.write("Insight: Memungkinkan pengguna untuk mengevaluasi merek-merek mana yang memiliki reputasi baik berdasarkan rating yang diberikan oleh pembeli sebelumnya.")
+    st.write("Actionable Insight: Identifikasi merek-merek yang memiliki rating tinggi. Lakukan perluasan katalog produk atau penawaran promosi khusus.")
     st.subheader(f"Jumlah Kacamata untuk Rating {selected_rating}")
     filtered_df = df[df['stars'] == selected_rating]
     st.write(filtered_df)
@@ -88,10 +91,11 @@ def main():
     plt.xlabel('Rating')
     plt.ylabel('Jumlah Kacamata')
     st.pyplot(plt)
-    st.write("Grafik di atas menunjukkan bahwa rating yang paling banyak dipilih adalah rating dengan kategori Tinggi.\n"
+    st.write("Interpretasi: Grafik di atas menunjukkan bahwa rating yang paling banyak diterima adalah rating dengan kategori Tinggi.\n"
              "Terdapat lebih dari 160 kacamata yang mendapat rating ini. Selanjutnya terdapat kategori rating Baik dengan lebih dari 60 kacamata yang mendapat rating ini\n"
              "Rating Rendah memiliki jumlah kacamata yang paling sedikit. Tidak lebih dari 10 kacamata yang mendapat rating Rendah.")
-
+    st.write("Insight: Terdapat kecenderungan produk kacamata mendapat rating tinggi dari pembeli, yang menandakan kepuasan pelanggan terhadap produk tersebut.")
+    st.write("Actionable Insight: Tingkatkan ketersediaan produk dengan rating tinggi. Berikan penekanan pada promosi produk-produk tersebut untuk menarik lebih banyak pembeli dan meningkatkan penjualan secara keseluruhan.")
 if __name__ == "__main__":
     main()
 
@@ -126,9 +130,10 @@ def main():
     ax.set_ylabel('Harga / Nilai')
     
     st.pyplot(fig)
-    st.write("Diagram di atas menunjukkan bahwa rating dengan kategori tinggi memiliki harga yang lebih mahal dibanding kategori lainnya.\n"
+    st.write("Interpretasi: Diagram di atas menunjukkan bahwa rating dengan kategori tinggi memiliki harga yang lebih mahal dibanding kategori lainnya.\n"
              "Secara umum, terdapat korelasi positif antara rating dan harga. Artinya, produk dengan rating lebih tinggi cenderung lebih mahal daripada produk dengan rating lebih rendah.")
-
+    st.write("Insight: Meskipun produk dengan rating tinggi cenderung lebih mahal, pembeli mungkin lebih cenderung memilihnya karena persepsi kualitas yang lebih tinggi.")
+    st.write("Actionable Insight: Lakukan evaluasi kebijakan penetapan harga berdasarkan pada kualitas produk dan rating yang diberikan, sehingga harga yang ditawarkan sesuai dengan persepsi kualitas yang diinginkan oleh pelanggan.")
 if __name__ == "__main__":
     main()
 
@@ -151,8 +156,9 @@ def main():
     ax.axis('equal')  # Memastikan pie chart terlihat seperti lingkaran
     plt.title('Top 5 Produk Terlaris')
     st.pyplot(fig)
-    st.write("Grafik di atas menunjukkan menunjukkan persentase 5 brand kacamata terlaris. Sojos menjadi brand terlaris dengan 32.2% produk yang terjual, diikuti oleh Ray-Ban dengan 30.5%, Oakley 16.9%, Kaliyadi 11.9%, dan Rockbros 8.5%,")
-
+    st.write("Interpretasi: Grafik di atas menunjukkan menunjukkan persentase 5 brand kacamata terlaris. Sojos menjadi brand terlaris dengan 32.2% produk yang terjual, diikuti oleh Ray-Ban dengan 30.5%, Oakley 16.9%, Kaliyadi 11.9%, dan Rockbros 8.5%,")
+    st.write("Insight: Kelima brand tersebut khususnya Sojos dan Ray-Ban memiliki pangsa pasar yang besar, dan dapat menjadi fokus untuk promosi lebih lanjut.")
+    st.write("Actionable Insight: Tingkatkan kerjasama dengan merek-merek terlaris. Lakukan strategi pemasaran yang lebih agresif seperti promosi eksklusif atau kerjasama endorsement untuk memperluas jangkauan dan meningkatkan penjualan.")
 if __name__ == "__main__":
     main()
 
@@ -180,7 +186,8 @@ def main():
         autotexts[i].set_text(f"{val}")
     
     st.pyplot(fig)
-    st.write("Grafik di atas menunjukkan 5 brand kacamatan dengan penjualan terendah, dimana produk yang berhasil terjual dari kelima brand ini hanyalah satu")
-
+    st.write("Interpretasi: Grafik di atas menunjukkan 5 brand kacamatan dengan penjualan terendah, dimana produk yang berhasil terjual dari kelima brand ini hanyalah satu")
+    st.write("Insight: Kelima brand tersebut memiliki pangsa pasar yang kurang. Hal ini menyoroti potensi masalah dalam kinerja produk-produk dari merek-merek tersebut, seperti kurangnya daya tarik atau kepercayaan dari pelanggan.")
+    st.write("Actionable Insight: Evaluasi ulang strategi pemasaran untuk merek-merek dengan penjualan terendah. Mungkin perlu dilakukan penyesuaian harga, peningkatan visibilitas di platform, atau perbaikan kualitas produk agar dapat menarik minat pembeli.")
 if __name__ == "__main__":
     main()
